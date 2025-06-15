@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block body%}
+
+<body>
+    <h1 class="heading_space"> User Profile </h1>
+
+<div class="space">
+
+  {% for row in list_0 %}
+   <div>  <div class="bold_1" id = "username"> Username </div> {{row.Username}} </div>
+      <div> <div class="bold_1" id = "city" > City </div> {{row.City}} </div>
+{% endfor %}
+    <div class="bold_1" > Your previous reviews: </div>
+
+    <table class = "table">
+
+      <thead>
+          <tr>
+              <th>Description</th>
+              <th>Club</th>
+              <th>Date Visted</th>
+              <th> Night</th>
+              <th> DJs </th>
+              <th>Rating Overall</th>
+              <th>Crowd </th>
+              <th>Security </th>
+              <th>Sound </th>
+              <th>Women's Safety</th>
+              <th>Comments </th>
+            </tr>
+     </thead>
+
+     <tbody>
+      {% for column in dict %}
+      <tr>
+          <td> {{column.description}} </td>
+          <td> {{column.club}} </td>
+          <td> {{ column.date_visited }} </td>
+          <td> {{ column.night}} </td>
+          <td> {{ column.DJ }}</td>
+          <td> {{column.rating_overall}} </td>
+          <td> {{column.rating_crowd}}  </td>
+          <td> {{column.rating_security}} </td>
+          <td> {{ column.rating_sound }} </td>
+          <td> {{ column.rating_womensafety}} </td>
+          <td> {{ column.comments}} </td>
+      </tr>
+          {% endfor %}
+     </tbody>
+
+  </table>
+
+
+</div>
+
+
+{% endblock %}
+
+</body>
+

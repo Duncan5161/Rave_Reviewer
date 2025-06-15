@@ -1,0 +1,71 @@
+
+{% extends "layout.html" %}
+
+{% block body%}
+
+<body>
+
+    <div class = "space">
+
+    <h2> Reviews by Club </h2>
+    <h5> All Ratings out of Five </h5>
+
+    <form class = "form-group" action="/clubs" method="GET">
+
+    <label class="city_TBC" for="city_select" > Filter by city </label>
+    <Select name="city_select" id="city_select">
+      {% for row in city_list %}
+
+      <option> {{ row.City }} </option>
+
+      {% endfor %}
+
+    </Select>
+
+    <button id="submit" class="btn_2" type="submit">Filter</button>
+
+  </form>
+
+    <table class = "table">
+
+        <thead>
+            <tr>
+                <th>Club</th>
+                <th>City </th>
+                <th>Main Genre</th>
+                <th> Average overall rating </th>
+                <th> Average rating for women's safety </th>
+                <th>Most popular night  </th> <!-- Sum overall rating for each night and put in best overall average -->
+                <th>Reviews Submitted </th>
+                <th>Friday close time </th>
+                <th>Saturday close time</th>
+              </tr>
+       </thead>
+
+       <tbody>
+        {% for club in dict %}
+
+      <tr>
+        <td> {{club.club_name}} </td>
+        <td> {{club.city}} </td>
+        <td> {{club.main_genre}} </td>
+        <td> {{club.average_overall}} </td>
+        <td> {{club.women_safety}} </td>
+        <td> {{club.best_night_final}} </td>
+        <td> {{club.reviews_submitted}} </td>
+        <td> {{club.friday_close}} </td>
+        <td> {{club.saturday_close}} </td>
+
+
+      </tr>
+
+        {% endfor %}
+       </tbody>
+
+    </table>
+
+  </div>
+
+{% endblock %}
+
+</body>

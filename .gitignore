@@ -1,0 +1,11 @@
+#Virtual enviroment
+venv
+
+#Notes
+Notes.txt
+
+#DS Store
+.DS_Store
+
+#__pycache__
+__pycache__

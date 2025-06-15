@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block body%}
+
+ {% block title %}
+
+{% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('myForm');
+
+            form.addEventListener('submit', function(event){
+
+        //Check password and confirm the same (client side)
+           const password = form.password.value;
+           const confirm = form.confirm.value;
+
+            if (password !== confirm){
+                alert("\nPasswords do not match");
+                event.preventDefault();
+            }
+        });
+    });
+
+</script>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class = "flash">
+
+            {% for message in messages %}
+            <li> {{ message }} </li>
+        {% endfor %}
+          </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1 class="heading_space"> Create profile </h1>
+
+    <h4 class="space"> All fields required </h4>
+
+    <div class="space">
+
+    <form id="myForm" class="form" action="/create_profile" method="POST">
+
+        <div class = "form-group">
+            <label class = "label" for = "username"> Please enter a username </label>
+            <input class="input" id="username" name="username" autocomplete="off" placeholder="Username" minlength="8" autofocus required>
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "city" > What city do you live in or go out in most frequently? </label>
+            <input class = "input" id = "city" name = "city" autocomplete="off" placeholder="City" type="text">
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "password" > Please enter a password of at least eight characters </label>
+            <input class="input" id="password" name="password" autocomplete="off" placeholder="Password" type="password" minlength="8" required>
+        </div>
+
+        <div class = "form-group">
+            <label class ="label" for = "confirm"> Please confirm your password </label>
+            <input class ="input" id ="confirm" name ="confirm" autocomplete="off" placeholder="Confirm Password" type="password" minlength="8" required>
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "email">  Please enter your email addresss </label>
+            <input class = "input" type="email" id = "email" name = "email" autocomplete="off" placeholder="Email" required>
+        </div>
+
+        <div> What gender do you identify as?
+            <input type = "radio" id = "gender" name = "select_gender" value = "male" required>
+            <label for = "gender"> Male </label>
+            <input type = "radio" id = "gender_1" name = "select_gender" value = "female" required>
+            <label for = "gender_1"> Female </label>
+            <input type = "radio" id = "gender_2" name = "select_gender" value = "non-binary" required>
+            <label for = "gender_2"> Non-Binary </label>
+            <input type = "radio" id = "gender_3" name = "select_gender" value = "other" required>
+            <label for = "gender_3"> Other </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+{% endblock %}

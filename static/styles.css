@@ -1,0 +1,176 @@
+
+/* For Layout, to use on every page */
+
+.btn{
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #000000;
+}
+
+.dropdown{
+    margin-left: 0px;
+}
+
+.title{
+    text-align: center;
+    padding: 15px;
+    color: #00008B;
+}
+
+.log-in{
+    text-align: right;
+    margin-right: 50px;
+}
+
+/* For multiple pages */
+
+.star{
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
+#thank_you{
+    display: none;
+}
+
+#Failiure{
+    display:none;
+}
+
+.heading_space{
+    margin-left: 10px;
+}
+
+.submit_btn{
+    border: 2px solid #000; /* Adds a border */
+    padding: 10px 20px;     /* Adds padding */
+    background-color: #90EE90; /* Light background */
+    color: #000;            /* Text color */
+    font-size: 16px;        /* Adjust text size */
+    cursor: pointer;        /* Changes cursor to pointer */
+    margin-top: 15px;
+
+}
+
+.label { /* Ensures labels are displayed inline with inputs */
+    display: inline-block;
+    text-align: right; /* Aligns text to the right */
+    margin-right: 10px; /* Spacing between label and input */
+}
+
+.input {
+    padding: 5px;
+    width: 300px; /* Adjust width of the input */
+    height: 20px;
+}
+
+.space{
+    margin-left: 50px;
+}
+
+/* For clubs */
+
+.filter{
+    margin-top: 25px;
+}
+
+/* For Reviews */
+
+.table{
+    border-spacing: 25px;
+    margin-left: 5px;
+    margin-right: 25px; 
+  }
+
+.btn_2{
+    margin-right:15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #000000;
+    color: blue;
+}
+
+.padding{
+margin-right:50px; 
+
+}
+
+/* For Add Review */
+
+.text_space{
+margin-top: 15px;
+font-weight: bold;
+color: #00008B;
+}
+
+/* For Add Club */
+
+.input_1 {
+    padding: 5px;
+    width: 100px; /* Adjust width of the input for opening times */
+    height: 20px;
+}
+
+.F{
+    display: none;
+}
+
+/* For thank you */
+
+.thankyou{
+    padding: 100px;
+    text-align: centre;
+}
+
+/* For Profile */
+
+.flash{
+    color: #FF0000;
+}
+
+/* For log-in */
+
+.btn_1{
+    margin: 0;
+    position: absolute;
+    top:65%;
+    left:46%;
+    -ms-transform:translateY(-50%);
+    transform: translateY(-50%);
+    border: 3px solid #000000;
+    border: 2px solid #000; /* Adds a border */
+    padding: 10px 20px;     /* Adds padding */
+    background-color: #90EE90; /* Light background */
+    color: #000;            /* Text color */
+    font-size: 16px;        /* Adjust text size */
+    cursor: pointer;
+}
+
+.login_h{
+    text-align:center;
+    margin-bottom: 50px;
+}
+
+.login_2{
+    margin-left: 820px;
+}
+
+.login_4{
+
+    margin-right:auto;
+    margin-left:auto;
+}
+
+/* For Profile */
+
+.bold_1{
+    font-weight: bold;
+}
+
+.space_above{
+    margin-top: 15px;
+}
+
+

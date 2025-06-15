@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block body%}
+
+    <title> Add Review </title>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        let name = document.querySelector('#club');
+        let description = document.querySelector('#description');
+        let thank_you = document.querySelector('#thank_you');
+        let Failiure = document.querySelector('#Failiure');
+        let date = document.querySelector('#date');
+
+        document.querySelector('#submit').addEventListener('click', function(){
+
+        if ((name.value.length == 0) || (description.value.length == 0) || (date.value.length ==0) ){
+            Failiure.style.display = "block";
+        }
+
+        });
+
+    });
+
+</script>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class = "flash">
+
+        {% for message in messages %}
+        <li> {{ message }} </li>
+    {% endfor %}
+      </ul>
+    {% endif %}
+ {% endwith %}
+
+    <div class = "review_body">
+
+
+    <h1 class = "heading_space"> Add Review </h1>
+
+<div class = "space">
+
+    <form class="form" action="/add_review" method="POST">
+
+        <div class = "form-group">
+            <label class = "label" for = "description" > Describe the Night in a few words * </label>
+            <input class = "input" name = "description" id = "description" autocomplete="off"  placeholder="E.g. David Guetta at Corsica Studios" type="text" maxlength="40" required autofocus>
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "club" > Select Club from List * (if club not listed, please add club <a href = "{{ url_for ('add_club') }}"  >here</a>) </label>
+            <Select name = "club" id = "club">
+                {% for row in dict %}
+
+                <option> {{row.club_name }} </option>
+
+                {% endfor %}
+            </Select>
+        </div>
+
+
+        <div class = "form-group">
+            <label class = "label" for = "date" >Date visited * </label>
+            <input class = "input" name = "date" id = "date" autocomplete="off" type="date" required>
+        </div>
+
+      <div class = "form-group">
+        <label class = "label" for = "night" > Enter night/brand/event (e.g. Fabric Live) </label>
+        <input class = "input" name = "night" id = "night" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
+    </div>
+
+    <div class = "form-group">
+        <label class = "label" for = "DJ_1" > Headline DJ </label>
+        <input class = "input" name = "DJ_1" id = "DJ_1" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
+    </div>
+
+        <div class = "text_space">  Please rate your night out of five! *
+        </div>
+
+        <div>
+        <label for = "overall"> <b>  Overall Vibe </b> | This is your collective experience of the club on the night you attended </label>
+        <select name = "overall" id = "overall">
+        <option value = "1">1 *</option>
+        <option value = "2">2 **</option>
+        <option value = "3">3 ***</option>
+        <option value = "4">4 ****</option>
+        <option value = "5">5 *****</option>
+        </select>
+        </div>
+
+        <div>
+        <label for = "crowd"> <b> Crowd </b> | Your experience with other clubbers, were they friendly and welcoming? Or rude and distant?  </label>
+        <select name = "crowd" id = "crowd">
+        <option value = "1">1 *</option>
+        <option value = "2">2 **</option>
+        <option value = "3">3 ***</option>
+        <option value = "4">4 ****</option>
+        <option value = "5">5 *****</option>
+        </select>
+        </div>
+
+        <div>
+        <label for = "security"> <b> Security </b> | Were the security respectful and proffesional?  </label>
+        <select name = "security" id = "security">
+        <option value = "1">1 *</option>
+        <option value = "2">2 **</option>
+        <option value = "3">3 ***</option>
+        <option value = "4">4 ****</option>
+        <option value = "5">5 *****</option>
+        </select>
+        </div>
+
+        <div>
+        <label for = "sound"> <b> Sound Quality </b> | How clear was the bass? Was the volume too high or low? </label>
+        <select name = "rating" id = "sound">
+        <option value = "1">1 *</option>
+        <option value = "2">2 **</option>
+        <option value = "3">3 ***</option>
+        <option value = "4">4 ****</option>
+        <option value = "5">5 *****</option>
+        </select>
+        </div>
+
+        {%if show_restricted %}
+        <div id="restrictedDiv">
+        <label for = "women" class = bold>  <b> Women's Safety </b> | If you identify was a woman, did you feel safe? (Please note this option not available if you identify as male) </label>
+        <select name = "women" id = "women">
+        <option value = "1">1 *</option>
+        <option value = "2">2 **</option>
+        <option value = "3">3 ***</option>
+        <option value = "4">4 ****</option>
+        <option value = "5">5 *****</option>
+        </select>
+        </div>
+        {% endif %}
+
+        <div class = "form-group">
+            <label class = "label" for = "comments" > Enter any comments </label>
+            <input class = "input" name = "comments" id = "comments" autocomplete="off" placeholder="Max length 100 characters" type="text" maxlength="100">
+        </div>
+
+
+    <div class = "star"> * Mandatory Field </div>
+
+    <button id = "submit" class="submit_btn" type="submit">Submit</button>
+    <div id = "thank_you" class = "TY" > Thank you for adding a new review</div>
+    <div id = "Failiure" class = "F" > Please complete all required fields </div>
+
+</form>
+
+  </div>
+
+</div>
+
+</body>
+
+{% endblock %}

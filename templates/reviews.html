@@ -1,0 +1,93 @@
+
+{% extends "layout.html" %}
+
+{% block body%}
+
+<body>
+
+    <div class = "space">
+
+    <h2> Night Reviews </h2>
+    <h5> All Ratings out of Five </h5>
+
+
+    Please note filters can only be used one at a time and not in combination, i.e. selecting a club will default night selection to 'all' and show all night reviews at that club
+
+     <form class = "form-group" action="/reviews" method="GET">
+
+        <label class="city_TBC" for="club_select" > Filter by Club </label>
+        <Select name="club_select" id="club_select">
+          {% for row in club_list %}
+
+          <option> {{ row.Club }} </option>
+
+          {% endfor %}
+
+        </Select>
+
+        <button id="submit" class="btn_2" type="submit">Filter</button>
+
+        <label class="city_TBC" for="night_select" > Filter by Night </label>
+            <Select name="night_select" id="night_select">
+              {% for row in night_list %}
+
+              <option> {{ row.Night }} </option>
+
+              {% endfor %}
+
+            </Select>
+
+        <button id="submit_1" class="btn_2" type="submit">Filter</button>
+
+     </form>
+
+     <div class = "space_above">
+     <h5> Raver Reviews (most recently submitted first) </h5>
+    </div>
+
+    <div class ="padding"> 
+    <table class = "table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Club</th>
+                <th>Date Visted</th>
+                <th> Night</th>
+                <th> City </th>
+                <th> Headline DJ </th>
+                <th>Rating Overall</th>
+                <th>Crowd </th>
+                <th>Security </th>
+                <th>Sound </th>
+                <th>Women's Safety</th>
+                <th>Comments </th>
+              </tr>
+       </thead>
+
+       <tbody>
+        {% for column in dict %}
+        <tr>
+            <td> {{column.description}} </td>
+            <td> {{column.club}} </td>
+            <td> {{ column.date_visited }} </td>
+            <td> {{ column.night}} </td>
+            <td> {{ column.city  }} </td>
+            <td> {{ column.DJ }}</td>
+            <td> {{column.rating_overall}} </td>
+            <td> {{column.rating_crowd}}  </td>
+            <td> {{column.rating_security}} </td>
+            <td> {{ column.rating_sound }} </td>
+            <td> {{ column.rating_womensafety}} </td>
+            <td> {{ column.comments}} </td>
+        </tr>
+            {% endfor %}
+       </tbody>
+
+    </table>
+
+</div>
+</div>
+
+{% endblock %}
+
+</body>

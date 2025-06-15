@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block body%}
+
+
+    <title> Add Club </title>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        let name = document.querySelector('#club');
+        let city = document.querySelector('#city');
+        let thank_you = document.querySelector('#thank_you');
+        let Failiure = document.querySelector('#Failiure');
+        let postcode = document.querySelector('#postcode')
+
+        <!-- Client-side Validation: Check mandatory fields are complete and postcode at least three characters -->
+        document.querySelector('#submit').addEventListener('click', function(){
+
+        if ((name.value.length == 0) || (city.value.length == 0)){
+            Failiure.style.display = "block";
+        }
+
+       else if (postcode.value.length < 3 && postcode.value.length > 0){
+            Failiure.style.display = "none";
+            postcode_failiure.style.display = "block";
+            }
+
+        });
+
+    });
+
+</script>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class = "flash">
+
+        {% for message in messages %}
+        <li> {{ message }} </li>
+    {% endfor %}
+      </ul>
+    {% endif %}
+ {% endwith %}
+
+
+    <h1 class = "heading_space"> Add Club </h1>
+
+ <div class = "space">
+
+    <form class = "form" action="/add_club" method="POST">
+
+        <div class = "form-group">
+            <label class = "label" for = "club" >Enter Club Name* </label>
+            <input class = "input" name = "club" id = "club" autocomplete="off" placeholder="Club Name" type="text" autofocus required>
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "city" >Enter Club City* </label>
+            <input  class = "input" name = "city" id = "city" autocomplete="off" placeholder="City" type="text" required>
+        </div>
+
+        <div class = "form-group">
+            <label class = "label" for = "postcode" >Enter Club Postcode </label>
+            <input class = "input" id = "postcode" name = "postcode" autocomplete="off" placeholder="Postcode" minlength=4 type="text">
+        </div>
+
+     <div>
+        <div>  Enter Club Closing Time (leave blank if club is not open on that day or you don't know the closing time): </div>
+        <div> Monday <input class = "input_1" name = "Monday" autocomplete="off" type="time"> </div>
+        <div> Tuesday <input class = "input_1" name = "Tuesday" autocomplete="off" type="time"> </div>
+        <div> Wednesday <input class = "input_1" name = "Wednesday" autocomplete="off" type="time"> </div>
+        <div> Thursday <input class = "input_1" name = "Thursday" autocomplete="off" type="time"> </div>
+        <div> Friday <input class = "input_1" name = "Friday" autocomplete="off" type="time"> </div>
+        <div> Saturday <input class = "input_1" name = "Saturday" autocomplete="off" type="time"> </div>
+        <div> Sunday <input class = "input_1" name = "Sunday" autocomplete="off" type="time"> </div>
+    </div>
+
+        <label for = "genre"> Main/Most Frequent Genre Played </label>
+            <select name = "genre" id = "genre">
+            <option value = "House">House</option>
+            <option value = "Techno">Techno</option>
+            <option value = "UK Garage">UK Garage</option>
+            <option value = "Drum and Bass">Drum and Bass</option>
+            <option value = "Jungle">Jungle</option>
+            <option value = "Dubstep">Dubstep</option>
+            <option value = "Pop">Pop</option>
+            <option value = "Hip-hop">Hip-hop</option>
+            <option value = "RnB">RnB</option>
+            <option value = "Reggeton">Reggeton</option>
+            <option value = "Reggeton">Jazz</option>
+            <option value = "Other">Other</option>
+            <option value = "Unknown">Not known</option>
+            </select>
+
+
+    <div class = "star"> * = Mandatory Field </div>
+
+    <button class = "submit_btn" id = "submit" type="submit">Submit</button>
+
+    <div id = "thank_you" class = "TY" > Thank you for adding a new club</div>
+    <div id = "Failiure" class = "F" > Please complete all required fields </div>
+    <div id = "postcode_failiure" class = "F" > Please check postcode length </div>
+
+</form>
+
+</div>
+</body>
+
+
+{% endblock %}

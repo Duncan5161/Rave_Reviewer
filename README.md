@@ -41,7 +41,6 @@ I ultimately chose option three primarily as this reduces the chances of client-
 # Video Demo: https://youtu.be/CmmrxOD7SKo
 
 # Deployment
-The final website was pushed to Github, then hosted via Python Anywhere. The live demo via Python Anywhere is here:  TO DO: Make live and update link
-
+The final website was pushed to Github, then hosted via Python Anywhere. The live demo via Python Anywhere is here: https://rave-reviewer-duncan51.eu.pythonanywhere.com/
 # Author 
 Duncan Shallard-Brown - duncan51@hotmail.co.uk

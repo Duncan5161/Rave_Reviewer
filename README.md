@@ -38,9 +38,10 @@ This was something that I considered approaching in a range of ways - (1) render
 
 I ultimately chose option three primarily as this reduces the chances of client-side interference. Using a Jinga ‘if restricted’ loop, with ‘show_restricted’ defined as false should the user identify as male, I ensured that if the currently logged in profile had the gender assigned as male this successfully hid the female safety part of a new review.
 
-# Video Demo: https://youtu.be/CmmrxOD7SKo
+# Video Demo
+https://youtu.be/CmmrxOD7SKo
 
 # Deployment
-The final website was pushed to Github, then hosted via Python Anywhere. The live demo via Python Anywhere is here: https://rave-reviewer-duncan51.eu.pythonanywhere.com/
+The final website was pushed to Github, then hosted via Python Anywhere. The live deployment via Python Anywhere is here: https://rave-reviewer-duncan51.eu.pythonanywhere.com/
 # Author 
 Duncan Shallard-Brown - duncan51@hotmail.co.uk

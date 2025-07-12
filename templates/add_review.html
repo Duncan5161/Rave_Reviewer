@@ -21,6 +21,9 @@
 
         });
 
+        var today = new Date().toISOString().split('T')[0]; 
+        document.getElementById("date").setAttribute("max", today); 
+
     });
 
 </script>
@@ -65,18 +68,18 @@
 
 
         <div class = "form-group">
-            <label class = "label" for = "date" >Date visited * </label>
-            <input class = "input" name = "date" id = "date" autocomplete="off" type="date" required>
+            <label class="label" for="date" >Date visited * </label>
+            <input class="input" name="date" id="date" autocomplete="off" type="date" max="" required>
         </div>
 
-      <div class = "form-group">
-        <label class = "label" for = "night" > Enter night/brand/event (e.g. Fabric Live) </label>
-        <input class = "input" name = "night" id = "night" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
+      <div class="form-group">
+        <label class="label" for="night" > Enter night/brand/event (e.g. Fabric Live) </label>
+        <input class="input" name="night" id="night" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
     </div>
 
     <div class = "form-group">
-        <label class = "label" for = "DJ_1" > Headline DJ </label>
-        <input class = "input" name = "DJ_1" id = "DJ_1" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
+        <label class="label" for="DJ_1" > Headline DJ </label>
+        <input class="input" name="DJ_1" id="DJ_1" autocomplete="off" placeholder="Max 30 characters" type="text" maxlength="30">
     </div>
 
         <div class = "text_space">  Please rate your night out of five! *

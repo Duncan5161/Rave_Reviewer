@@ -423,9 +423,11 @@ def add_club():
     if request.method == "POST":
 
         #Set variables
-        club_name = request.form.get("club")
+        club_name_i = request.form.get("club")
+        club_name = club_name_i.title() #Standerdise names to avoid duplicates 
         print(f"Club Name: {club_name}")
-        city = request.form.get("city")
+        city_i = request.form.get("city")
+        city = city_i.title() #Standerdise names to avoid duplicates 
         print(f"City: {city}")
         postcode = request.form.get("postcode")
         closing_monday = request.form.get("Monday")
@@ -470,8 +472,8 @@ def add_club():
             return render_template("add_club.html")
 
         #Check if city is entered
-        city = request.form.get("city")
-        length = len(city)
+        city_length = request.form.get("city")
+        length = len(city_length)
         if length <1:
             flash("Please enter city name")
             return render_template("add_club.html")
